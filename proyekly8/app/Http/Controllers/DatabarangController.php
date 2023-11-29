@@ -54,12 +54,12 @@ class DatabarangController extends Controller
         $data->Satuan = $request->input('Satuan');
         $data->HargaSatuan = $request->input('HargaSatuan');
         $data->save();
-        return redirect()->route('databarang')->with('success', 'Data berhasil di Update');
+        return redirect()->route('Databarang')->with('success', 'Data berhasil di Update');
     }
     public function deletedatabarang(Request $request, $id)
     {
         $data = databarang::find($id);
         $data->delete();
-        return redirect()->route('databarang')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('Databarang')->with('success', 'Data berhasil dihapus');
     }
 }
