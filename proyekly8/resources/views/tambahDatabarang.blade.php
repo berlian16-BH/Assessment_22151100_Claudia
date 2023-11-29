@@ -19,9 +19,9 @@
 <body>
 
 <div class="container vh-100 d-flex justify-content-center align-items-center">
-   
-    <form action="/insertdata" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/insertdata') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        <!-- ... -->
         <div class="container vh-50 d-flex justify-content-center align-items-center">
             <h2 class="header-profil">DATA BARANG</h2>
         </div>

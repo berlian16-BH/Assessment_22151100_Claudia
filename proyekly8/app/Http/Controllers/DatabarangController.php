@@ -16,16 +16,27 @@ class DatabarangController extends Controller
     public function tambahDatabarang(){
         return view('tambahDatabarang');
     }
-    public function insertdata(Request $request){
+
+    public function insertdata(Request $request)
+    {
         $validatedData = $request->validate([
             'namabarang' => 'required',
-            'Satuan' => 'required|numeric', // Hapus aturan validasi numeric
+            'Satuan' => 'required', // Jika Satuan bukan numerik, hapus validasi numeric
             'HargaSatuan' => 'required|numeric',
             'Stok' => 'required|numeric',
         ]);
     
-        return redirect()->route('Databarang');
+        // Buat instance model databarang
+        $newData = new databarang();
+        $newData->namabarang = $request->namabarang;
+        $newData->Satuan = $request->Satuan;
+        $newData->HargaSatuan = $request->HargaSatuan;
+        $newData->Stok = $request->Stok;
+        $newData->save();
+    
+        return redirect()->route('Databarang')->with('success', 'Data berhasil ditambahkan');
     }
+    
     
     
     public function editdatabarang($id)
