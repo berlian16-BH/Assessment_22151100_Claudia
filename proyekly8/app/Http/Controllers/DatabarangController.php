@@ -19,20 +19,12 @@ class DatabarangController extends Controller
     public function insertdata(Request $request){
         $validatedData = $request->validate([
             'namabarang' => 'required',
-            'Satuan' => 'required', // Hapus aturan validasi numeric
+            'Satuan' => 'required|numeric', // Hapus aturan validasi numeric
             'HargaSatuan' => 'required|numeric',
             'Stok' => 'required|numeric',
         ]);
     
-        // Validasi tambahan untuk memastikan jenis satuan yang diterima
-        $validSatuan = ['kg', 'pcs', 'm']; // Tambahkan jenis satuan yang diizinkan
-        if (!in_array($validatedData['Satuan'], $validSatuan)) {
-            return redirect()->back()->with('error', 'Jenis satuan tidak valid');
-        }
-    
-        Databarang::create($validatedData);
-    
-        return redirect()->route('databarang')->with('success', 'Data barang berhasil ditambahkan');
+        return redirect()->route('Databarang');
     }
     
     

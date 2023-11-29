@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('tambahDatabarang');
 });
 
-Route::get('/databarang', [DatabarangController::class, 'index'])->name('databarang');
+Route::get('/Databarang', [DatabarangController::class, 'index'])->name('Databarang');
 Route::get('/tambahDatabarang', [DatabarangController::class, 'tambahDatabarang'])->name('tambahDatabarang');
 Route::post('/insertdata', [DatabarangController::class, 'insertdata'])->name('insertdata');
 Route::get('/editdatabarang/{id}', [DatabarangController::class, 'editdatabarang'])->name('editdatabarang');
