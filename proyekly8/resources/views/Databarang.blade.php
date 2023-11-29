@@ -36,7 +36,11 @@
                  
                 <td>
                    <a href="/editdatabarang/{{$row->id}}" type="button" class="btn btn-success">Edit</a>
-                   <a href="/deletedatabarang/{{$row->id_alat}}" class="btn btn-danger">Delete</a>
+                   <form action="/deletedatabarang/{{$row->id}}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
                 </td>
             </tr>
                @endforeach

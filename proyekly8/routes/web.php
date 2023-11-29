@@ -23,4 +23,4 @@ Route::get('/tambahDatabarang', [DatabarangController::class, 'tambahDatabarang'
 Route::post('/insertdata', [DatabarangController::class, 'insertdata'])->name('insertdata');
 Route::get('/editdatabarang/{id}', [DatabarangController::class, 'editdatabarang'])->name('editdatabarang');
 Route::post('/updatedatabarang/{id}', [DatabarangController::class, 'updatedatabarang'])->name('updatedatabarang');
-Route::post('/deletedatabarang/{id}', [DatabarangController::class, 'deletedatabarang'])->name('deletedatabarang');
+Route::delete('/deletedatabarang/{id}', [DatabarangController::class, 'deletedatabarang'])->name('deletedatabarang');
